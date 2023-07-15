@@ -1,2 +1,2 @@
 # JakartaStudyProject
-Jakarta Project with PG-DB, JSP, Primefaces, Spring Boot etc 
+Jakarta Project with PostgreSQL, JSP/JSF, Primefaces, Spring Boot, JPA, etc ... 
