@@ -2,10 +2,12 @@ package com.example.JakartaStudyProject;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 import java.sql.SQLException;
 
 @SpringBootApplication
+@ComponentScan("com.example.JakartaStudyProject.Controller")
 public class JakartaStudyProjectApplication {
 
     public static void main(String[] args) throws SQLException {
