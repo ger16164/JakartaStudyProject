@@ -2,11 +2,10 @@ package com.example.JakartaStudyProject.Controller;
 
 import com.example.JakartaStudyProject.Entities.Customer;
 import com.example.JakartaStudyProject.Repository.CustomerRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class CustomerController {
@@ -21,8 +20,29 @@ public class CustomerController {
         return customerRepository.findByFirstname(firstname);
     }
 
+    @GetMapping("/customers/findById/{id}")
+    public Optional<Customer> getById(@PathVariable("id") Long id) {
+        return customerRepository.findById(id);
+    }
+
     @GetMapping("/customers")
     public List<Customer> getAllUsers() {
         return customerRepository.findAll();
     }
+
+    @DeleteMapping("/customers/deleteById/{id}")
+    public void deleteById(@PathVariable("id") Long id) {
+        customerRepository.deleteById(id);
+    }
+
+    @PostMapping("/customers/updateById/{id}/{firstname}")
+    public void deleteById(@PathVariable("id") Long id, @PathVariable("firstname") String firstname) {
+        Optional<Customer> optionalCustomer = customerRepository.findById(id);
+        if (optionalCustomer.isPresent()) {
+            Customer customer = optionalCustomer.get();
+            customer.setFirstname(firstname);
+            customerRepository.save(customer);
+        }
+    }
+
 }
