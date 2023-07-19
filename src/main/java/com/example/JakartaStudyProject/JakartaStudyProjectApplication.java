@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class JakartaStudyProjectApplication {
 
     public static void main(String[] args) {
+        //test
         SpringApplication.run(JakartaStudyProjectApplication.class, args);
 //        PGDataManager pgDataManager = new PGDataManager();
 //
